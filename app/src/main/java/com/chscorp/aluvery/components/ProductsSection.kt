@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.chscorp.aluvery.R
 import com.chscorp.aluvery.model.Product
+import com.chscorp.aluvery.sampleData.sampleProducts
+import com.chscorp.aluvery.ui.theme.AluveryTheme
 import java.math.BigDecimal
 
 @Composable
@@ -53,25 +56,10 @@ fun ProductsSection(title: String, products: List<Product>) {
 @Preview(showBackground = true)
 @Composable
 private fun ProductsSectionPreview() {
-    ProductsSection("Promoções", sampleProducts)
+    AluveryTheme {
+        Surface {
+            ProductsSection("Promoções", products = sampleProducts)
+        }
+    }
 
 }
-
-val sampleProducts = listOf<Product>(
-    Product(
-        name = "Hamburguer",
-        price = BigDecimal("12.99"),
-        image = R.drawable.burger
-    ),
-    Product(
-        name = "Pizza",
-        price = BigDecimal("19.99"),
-        image = R.drawable.pizza
-    ),
-
-    Product(
-        name = "Batata frita",
-        price = BigDecimal("7.99"),
-        image = R.drawable.fries
-    )
-)

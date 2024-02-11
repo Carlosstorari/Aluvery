@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,8 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.chscorp.aluvery.R
 import com.chscorp.aluvery.extensions.toBrazilianCurrency
 import com.chscorp.aluvery.model.Product
-import com.chscorp.aluvery.ui.theme.Purple200
-import com.chscorp.aluvery.ui.theme.Teal200
+import com.chscorp.aluvery.ui.theme.AluveryTheme
 import java.math.BigDecimal
 
 @Composable
@@ -54,14 +54,15 @@ fun ProductItem(product: Product) {
                     .background(
                         brush = Brush.horizontalGradient(
                             colors = listOf(
-                                Purple200, Teal200
+                                MaterialTheme.colorScheme.primary,
+                                MaterialTheme.colorScheme.secondary
                             )
                         )
                     )
                     .fillMaxWidth()
             ) {
                 Image(
-                    painter = painterResource(id = product.image),
+                    painter = painterResource(id = R.drawable.placeholder),
                     contentDescription = null,
                     Modifier
                         .size(imageSize)
@@ -94,11 +95,14 @@ fun ProductItem(product: Product) {
 @Preview(showBackground = true)
 @Composable
 private fun ProductItemPreview() {
-    ProductItem(
-        Product(
-            name = LoremIpsum(50).values.first(),
-            price = BigDecimal("14,99"),
-            image = R.drawable.ic_launcher_background
-        )
-    )
+    AluveryTheme {
+        Surface {
+            ProductItem(
+                Product(
+                    name = LoremIpsum(50).values.first(),
+                    price = BigDecimal("14,99")
+                )
+            )
+        }
+    }
 }
