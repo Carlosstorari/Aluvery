@@ -1,5 +1,6 @@
 package com.chscorp.aluvery.sampleData
 
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import com.chscorp.aluvery.R
 import com.chscorp.aluvery.model.Product
 import java.math.BigDecimal
@@ -19,6 +20,7 @@ val sampleCandies = listOf(
         name = "Bolo",
         price = BigDecimal("11.99"),
         image = "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg",
+        description = LoremIpsum(50).values.first()
     )
 )
 
@@ -41,7 +43,8 @@ val sampleDrinks = listOf(
     Product(
         name = "Água",
         price = BigDecimal("2.99"),
-        image = "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg"
+        image = "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg",
+        description = LoremIpsum(50).values.first()
     )
 )
 
@@ -49,7 +52,8 @@ val sampleProducts = listOf<Product>(
     Product(
         name = "Hamburguer",
         price = BigDecimal("12.99"),
-        image = "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg"
+        image = "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg",
+        description = LoremIpsum(50).values.first()
     ),
     Product(
         name = "Pizza",
@@ -60,7 +64,8 @@ val sampleProducts = listOf<Product>(
     Product(
         name = "Batata frita",
         price = BigDecimal("7.99"),
-        image = "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg"
+        image = "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg",
+        description = LoremIpsum(50).values.first()
     ), *sampleDrinks.toTypedArray(), *sampleCandies.toTypedArray()
 )
 
