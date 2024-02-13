@@ -1,12 +1,14 @@
 package com.chscorp.aluvery.screens
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,11 +19,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.chscorp.aluvery.components.CardProductItem
+import com.chscorp.aluvery.components.PartnersSection
 import com.chscorp.aluvery.components.ProductsSection
 import com.chscorp.aluvery.components.SearchTextField
 import com.chscorp.aluvery.model.Product
 import com.chscorp.aluvery.sampleData.sampleProducts
 import com.chscorp.aluvery.sampleData.sampleSections
+import com.chscorp.aluvery.sampleData.sampleShopSections
 import com.chscorp.aluvery.ui.theme.AluveryTheme
 
 @Composable
@@ -52,6 +56,7 @@ fun HomeScreen(
             contentPadding = PaddingValues(bottom = 16.dp)
         ) {
             if (text.isBlank()) {
+
                 for (section in sections) {
                     val title = section.key
                     val products = section.value
@@ -60,6 +65,14 @@ fun HomeScreen(
                             title = title,
                             products = products
                         )
+                    }
+                }
+
+                for (shopSections in sampleShopSections){
+                    val title = shopSections.key
+                    val shop = shopSections.value
+                    item {
+                        PartnersSection(title = title, shop = shop)
                     }
                 }
             } else {

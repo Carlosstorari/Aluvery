@@ -25,32 +25,35 @@ fun ProductsSection(
     products: List<Product>,
     modifier: Modifier = Modifier
 ) {
-    Column {
-        Text(
-            text = title,
-            Modifier.padding(
-                start = 16.dp,
-                end = 16.dp
-            ),
-            fontSize = 20.sp,
-            fontWeight = FontWeight(400)
-        )
-        LazyRow(
-            Modifier
-                .padding(
-                    top = 8.dp
-                )
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),// espaçamento entre os elementos da lista
-            contentPadding = PaddingValues(horizontal = 16.dp) //espaçmamento inicio e fim da lista
-        )
-        {
-            items(products) { product -> // faz um looping por todos os items da lista products
-                ProductItem(product = product)
+    Section(
+        title = {
+            Text(
+                text = title,
+                Modifier.padding(
+                    start = 16.dp,
+                    end = 16.dp
+                ),
+                fontSize = 20.sp,
+                fontWeight = FontWeight(400)
+            )
+        },
+        content = {
+            LazyRow(
+                Modifier
+                    .padding(
+                        top = 8.dp
+                    )
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),// espaçamento entre os elementos da lista
+                contentPadding = PaddingValues(horizontal = 16.dp) //espaçmamento inicio e fim da lista
+            )
+            {
+                items(products) { product -> // faz um looping por todos os items da lista products
+                    ProductItem(product = product)
+                }
             }
         }
-
-    }
+    )
 }
 
 @Preview(showBackground = true)
