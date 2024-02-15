@@ -1,4 +1,4 @@
-package com.chscorp.aluvery.screens
+package com.chscorp.aluvery.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,10 +18,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.chscorp.aluvery.components.CardProductItem
-import com.chscorp.aluvery.components.PartnersSection
-import com.chscorp.aluvery.components.ProductsSection
-import com.chscorp.aluvery.components.SearchTextField
+import com.chscorp.aluvery.ui.components.CardProductItem
+import com.chscorp.aluvery.ui.components.PartnersSection
+import com.chscorp.aluvery.ui.components.ProductsSection
+import com.chscorp.aluvery.ui.components.SearchTextField
 import com.chscorp.aluvery.model.Product
 import com.chscorp.aluvery.sampleData.sampleProducts
 import com.chscorp.aluvery.sampleData.sampleSections

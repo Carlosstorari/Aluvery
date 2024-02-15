@@ -1,4 +1,4 @@
-package com.chscorp.aluvery.components
+package com.chscorp.aluvery.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
