@@ -13,19 +13,12 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.chscorp.aluvery.dao.ProductDao
-import com.chscorp.aluvery.model.Product
-import com.chscorp.aluvery.sampleData.sampleCandies
-import com.chscorp.aluvery.sampleData.sampleDrinks
-import com.chscorp.aluvery.sampleData.sampleProducts
 import com.chscorp.aluvery.sampleData.sampleSections
-import com.chscorp.aluvery.ui.screens.HomeScreen
+import com.chscorp.aluvery.ui.screens.HomeScreenStateless
+import com.chscorp.aluvery.ui.screens.HomeScreenStateful
 import com.chscorp.aluvery.ui.screens.HomeScreenUiState
 import com.chscorp.aluvery.ui.theme.AluveryTheme
 
@@ -40,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 startActivity(Intent(this, ProductFormActivity::class.java))
             }) {
                 val products = dao.products()
-                HomeScreen(products = products)
+                HomeScreenStateful(products = products)
             }
         }
     }
@@ -72,7 +65,7 @@ fun App(onFabClick: () -> Unit = {}, content: @Composable () -> Unit = {}) {
 @Composable
 fun AppPreview() {
     App {
-        HomeScreen(HomeScreenUiState(sections = sampleSections))
+        HomeScreenStateless(HomeScreenUiState(sections = sampleSections))
     }
 }
 

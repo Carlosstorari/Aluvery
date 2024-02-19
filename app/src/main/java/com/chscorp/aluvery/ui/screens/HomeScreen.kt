@@ -42,7 +42,7 @@ class HomeScreenUiState(
 }
 
 @Composable
-fun HomeScreen(products: List<Product>) {
+fun HomeScreenStateful(products: List<Product>) {
     val sections = mapOf(
         "Todos produtos" to products,
         "Promoções" to sampleDrinks + sampleCandies,
@@ -75,11 +75,11 @@ fun HomeScreen(products: List<Product>) {
             }
         )
     }
-    HomeScreen(state = state)
+    HomeScreenStateless(state = state)
 }
 
 @Composable
-fun HomeScreen(
+fun HomeScreenStateless(
     state: HomeScreenUiState = HomeScreenUiState()
 ) {
     Column {
@@ -134,7 +134,7 @@ fun HomeScreen(
 private fun HomeScreenPreview() {
     AluveryTheme {
         Surface {
-            HomeScreen(HomeScreenUiState(sections = sampleSections))
+            HomeScreenStateless(HomeScreenUiState(sections = sampleSections))
         }
     }
 }
@@ -144,7 +144,7 @@ private fun HomeScreenPreview() {
 fun HomeScreenWithSearchTextPreview() {
     AluveryTheme {
         Surface {
-            HomeScreen(state = HomeScreenUiState(
+            HomeScreenStateless(state = HomeScreenUiState(
                 searchText = "a",
                 sections = sampleSections
             ))
